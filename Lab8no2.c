@@ -9,6 +9,7 @@ Write your code in this editor and press "Run" button to compile and execute it.
 #include <stdio.h>
 
 int checkscore(char std[]);
+int countCorrectQ1(char ans[][10], int stdCount);
 
 char keys[10] = {'D','B','D','C','C','D','A','E','A','D'};
 
@@ -29,6 +30,8 @@ int main() {
         printf("std %d => %d\n", i+1, checkscore(ans[i]));
     }
 
+    printf("Correct Q1 => %d students\n", countCorrectQ1(ans, 8));
+
     return 0;
 }
 
@@ -42,4 +45,16 @@ int checkscore(char std[]) {
     }
 
     return score;
+}
+
+
+int countCorrectQ1(char ans[][10], int stdCount) {
+    int i, count = 0;
+
+    for (i = 0; i < stdCount; i++) {
+        if (ans[i][0] == keys[0])   
+            count++;
+    }
+
+    return count;
 }
